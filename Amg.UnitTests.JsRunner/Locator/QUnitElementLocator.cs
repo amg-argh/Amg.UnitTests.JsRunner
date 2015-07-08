@@ -28,23 +28,48 @@ namespace Amg.UnitTests.JsRunner.Locator {
 		}
 
 		public string LocateAssertMessage(IWebElement fromElement) {
-			return fromElement.FindElement(By.ClassName("test-message")).Text;
+			try { 
+				return fromElement.FindElement(By.ClassName("test-message")).Text;
+			}
+			catch(NoSuchElementException) {
+				return "";
+			}
 		}
 
 		public string LocateAssertExpected(IWebElement fromElement) {
-			return fromElement.FindElement(By.CssSelector(".test-expected pre")).Text;
+			try { 
+				return fromElement.FindElement(By.CssSelector(".test-expected pre")).Text;
+			}
+			catch(NoSuchElementException) {
+				return "";
+			}
 		}
 
 		public string LocateAssertActual(IWebElement fromElement) {
-			return fromElement.FindElement(By.CssSelector(".test-actual pre")).Text;
+			try { 
+				return fromElement.FindElement(By.CssSelector(".test-actual pre")).Text;
+			}
+			catch(NoSuchElementException) {
+				return "";
+			}
 		}
 
 		public string LocateAssertSource(IWebElement fromElement) {
-			return fromElement.FindElement(By.CssSelector(".test-source pre")).Text;
+			try { 
+				return fromElement.FindElement(By.CssSelector(".test-source pre")).Text;
+			}
+			catch(NoSuchElementException) {
+				return "";
+			}
 		}
 
 		public bool TestDidPass(IWebElement testElement) {
-			return testElement.GetAttribute("class") == "pass";
+			try { 
+				return testElement.GetAttribute("class") == "pass";
+			}
+			catch(NoSuchElementException) {
+				return false;
+			}
 		}
 	}
 }
