@@ -29,7 +29,6 @@ namespace Amg.UnitTests.JsRunner {
 				bool allTestsPassed = runner.ProcessAllTests(url);
 				int result = allTestsPassed ? 0 : 1;
 
-				Console.ReadLine();
 				return result;				
 			}
 			finally {
