@@ -1,0 +1,11 @@
+**/packages/
+**/bin/
+**/obj/
+**/deploy/
+
+#ignore useless file extensions
+*.cache
+*.user
+*.suo
+*.ncrunchproject
+*.DS_Store
